@@ -17,8 +17,8 @@
         <td>{{ employee.last_name }}</td>
         <td>{{ employee.email }}</td>
         <td>
-          <button class="btn btn-primary" [routerLink]="['/employees', employee.id, 'edit']">Edit</button>
-          <button class="btn btn-danger" (click)="deleteEmployee(employee.id)">Delete</button>
+          <button class="btn btn-primary" [routerLink]="['/employees', employee.id, 'edit']" style="margin-right: 10px">Edit</button>
+          <button class="btn btn-danger" (click)="deleteEmployee(employee.id)" style="margin-right: 10px">Delete</button>
           <button class="btn btn-secondary" [routerLink]="['/employees', employee.id]">Preview</button>
         </td>
       </tr>
