@@ -1,33 +1,32 @@
 <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="employee-form">
-    <mat-form-field appearance="outline">
-      <mat-label>First Name</mat-label>
-      <input matInput type="text" formControlName="first_name" />
-      <mat-error *ngIf="employeeForm.controls['first_name'].invalid && employeeForm.controls['first_name'].touched">
-        First name is required
-      </mat-error>
-    </mat-form-field>
-  
-    <mat-form-field appearance="outline">
-      <mat-label>Last Name</mat-label>
-      <input matInput type="text" formControlName="last_name" />
-      <mat-error *ngIf="employeeForm.controls['last_name'].invalid && employeeForm.controls['last_name'].touched">
-        Last name is required
-      </mat-error>
-    </mat-form-field>
-  
-    <mat-form-field appearance="outline">
-      <mat-label>Email</mat-label>
-      <input matInput type="email" formControlName="email" />
-      <mat-error *ngIf="employeeForm.controls['email'].invalid && employeeForm.controls['email'].touched">
-        Please enter a valid email address
-      </mat-error>
-    </mat-form-field>
-  
-    <div class="form-actions">
-      <button mat-raised-button color="primary" type="submit" [disabled]="!employeeForm.valid">
-        {{ employee ? 'Update' : 'Add' }}
-      </button>
-      <button mat-raised-button color="warn" type="button" (click)="onCancel()">Cancel</button>
+  <div class="form-group">
+    <label for="first_name">First Name</label>
+    <input type="text" class="form-control" formControlName="first_name" id="first_name">
+    <div *ngIf="employeeForm.controls['first_name'].invalid && employeeForm.controls['first_name'].touched" class="text-danger">
+      First name is required
     </div>
-  </form>
-  
+  </div>
+
+  <div class="form-group">
+    <label for="last_name">Last Name</label>
+    <input type="text" class="form-control" formControlName="last_name" id="last_name">
+    <div *ngIf="employeeForm.controls['last_name'].invalid && employeeForm.controls['last_name'].touched" class="text-danger">
+      Last name is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" formControlName="email" id="email">
+    <div *ngIf="employeeForm.controls['email'].invalid && employeeForm.controls['email'].touched" class="text-danger">
+      Please enter a valid email address
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary" [disabled]="!employeeForm.valid">
+      {{ employee ? 'Update' : 'Add' }}
+    </button>
+    <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+  </div>
+</form>
